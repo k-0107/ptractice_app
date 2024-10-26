@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:practice_app/page_a.dart';
-import 'package:practice_app/page_b.dart';
-import 'package:practice_app/page_c.dart';
+import 'package:practice_app/go_route/page_a.dart';
+import 'package:practice_app/go_route/page_b.dart';
+import 'package:practice_app/go_route/page_c.dart';
 /*
   最新のFlutterに対応するため、動画と少しコードが変わりました
 */
