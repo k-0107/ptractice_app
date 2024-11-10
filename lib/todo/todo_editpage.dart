@@ -4,15 +4,18 @@ import 'package:go_router/go_router.dart';
 import 'package:practice_app/todo/riverpod/todo_list_provider.dart';
 import 'package:practice_app/todo/todo_listpage.dart';
 
-class Todoaddpage extends ConsumerWidget {
-  Todoaddpage({super.key});
-  final controller = TextEditingController();
+class Todoeditpage extends ConsumerWidget {
+  final String initialText;
+
+  Todoeditpage({super.key, required this.initialText});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final controller = TextEditingController(text: initialText);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('タスク追加'),
+        title: Text('タスク編集'),
       ),
       body: Center(
         child: Column(
@@ -21,7 +24,7 @@ class Todoaddpage extends ConsumerWidget {
               controller: controller,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: '追加タスク入力  (絶対やれよな!!)',
+                labelText: 'タスク編集  (男に二言はないぞ!!)',
               ),
             ),
             ElevatedButton(
@@ -37,7 +40,7 @@ class Todoaddpage extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                context.pop('/a');
+                context.go('/a');
               },
               child: const Icon(Icons.post_add),
             ),

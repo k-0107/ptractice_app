@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:practice_app/todo/riverpod/todo_list_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-part 'todo_listpage.g.dart';
-
-@riverpod
-class TodoList extends _$TodoList {
-  @override
-  List<String> build() => [];
-
-  // 新しいタスクを追加
-  void addTask(String task) {
-    state = [...state, task];
-  }
-}
 
 class TodoListPage extends ConsumerWidget {
   const TodoListPage({super.key});
@@ -34,17 +23,41 @@ class TodoListPage extends ConsumerWidget {
                 itemBuilder: (c, i) {
                   return Card(
                     child: ListTile(
-                      title: Text(todoList[i]), // 各タスクを表示
+                      title: Text(todoList[i]),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              context.go('/c', extra: todoList[i]);
+                            },
+                            icon: Icon(Icons.edit),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.delete),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
               ),
             ),
-            FloatingActionButton(
-              onPressed: () {
-                context.pop('/b');
-              },
-              child: const Icon(Icons.add),
+            SizedBox(
+              height: 100,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    context.push('/b');
+                  },
+                  child: const Icon(Icons.add),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 150,
             )
           ],
         ),

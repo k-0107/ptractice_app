@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:practice_app/todo/todo_addpage.dart';
+import 'package:practice_app/todo/todo_editpage.dart';
 import 'package:practice_app/todo/todo_listpage.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
   App({super.key});
 
   final router = GoRouter(
-    initialLocation: '/b',
+    initialLocation: '/a',
     routes: [
       GoRoute(
         path: '/a',
@@ -27,6 +28,12 @@ class App extends StatelessWidget {
         path: '/b',
         builder: (context, state) => Todoaddpage(),
       ),
+      GoRoute(
+          path: '/c',
+          builder: (context, state) {
+            final taskTest = state.extra as String;
+            return Todoeditpage(initialText: taskTest);
+          }),
     ],
   );
 
