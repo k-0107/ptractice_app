@@ -1,25 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+part 'todo_listpage.g.dart';
 
-class TodoListPage extends StatelessWidget {
-  const TodoListPage({super.key});
-
+@riverpod
+class TodoList extends _$TodoList {
   @override
-  Widget build(BuildContext context) {
+  List<String> build() => [];
+
+  // 新しいタスクを追加
+  void addTask(String task) {
+    state = [...state, task];
+  }
+}
+
+class TodoListPage extends ConsumerWidget {
+  const TodoListPage({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final todoList = ref.watch(todoListProvider);
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text('タスク追加'),
-        ),
-        body: Column(
+      appBar: AppBar(
+        title: Text('タスク追加'),
+      ),
+      body: Center(
+        child: Column(
           children: [
-            Text("タスク一覧画面"),
-            ElevatedButton(
+            Expanded(
+              child: ListView.builder(
+                itemCount: todoList.length,
+                itemBuilder: (c, i) {
+                  return Card(
+                    child: ListTile(
+                      title: Text(todoList[i]), // 各タスクを表示
+                    ),
+                  );
+                },
+              ),
+            ),
+            FloatingActionButton(
               onPressed: () {
-                context.push('/b');
+                context.pop('/b');
               },
-              child: const Icon(Icons.post_add),
+              child: const Icon(Icons.add),
             )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 's1.dart';
+part of 'todo_listpage.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$s1NotifierHash() => r'50807122c169d62988d5d4499fe8db162e4931b5';
+String _$todoListHash() => r'f35e852225e70431b91511bf0924b0a8d3ac0896';
 
-/// See also [S1Notifier].
-@ProviderFor(S1Notifier)
-final s1NotifierProvider =
-    AutoDisposeNotifierProvider<S1Notifier, int>.internal(
-  S1Notifier.new,
-  name: r's1NotifierProvider',
+/// See also [TodoList].
+@ProviderFor(TodoList)
+final todoListProvider =
+    AutoDisposeNotifierProvider<TodoList, List<String>>.internal(
+  TodoList.new,
+  name: r'todoListProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$s1NotifierHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$todoListHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$S1Notifier = AutoDisposeNotifier<int>;
+typedef _$TodoList = AutoDisposeNotifier<List<String>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
