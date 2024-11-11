@@ -5,13 +5,13 @@ import 'package:practice_app/todo/riverpod/todo_list.dart';
 import 'package:practice_app/todo/todo_listpage.dart';
 
 class Todoeditpage extends ConsumerWidget {
-  final String initialText;
-
-  Todoeditpage({super.key, required this.initialText});
+  final int taskIndex;
+  Todoeditpage({super.key, required this.taskIndex});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = TextEditingController(text: initialText);
+    final taskList = ref.watch(todoListProvider);
+    final controller = TextEditingController(text: taskList[taskIndex]);
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +31,7 @@ class Todoeditpage extends ConsumerWidget {
               onPressed: () {
                 if (controller.text.isNotEmpty) {
                   final notifier = ref.read(todoListProvider.notifier);
-                  notifier.addTask(controller.text);
+                  notifier.editTask(taskIndex, controller.text);
                   controller.clear();
                   context.push('/a');
                 }

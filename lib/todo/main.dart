@@ -31,8 +31,8 @@ class App extends StatelessWidget {
       GoRoute(
           path: '/c',
           builder: (context, state) {
-            final taskTest = state.extra as String;
-            return Todoeditpage(initialText: taskTest);
+            final taskIndex = state.extra as int;
+            return Todoeditpage(taskIndex: taskIndex);
           }),
     ],
   );

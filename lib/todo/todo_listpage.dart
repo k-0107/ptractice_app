@@ -29,7 +29,7 @@ class TodoListPage extends ConsumerWidget {
                         children: [
                           IconButton(
                             onPressed: () {
-                              context.go('/c', extra: todoList[i]);
+                              context.go('/c', extra: i);
                             },
                             icon: Icon(Icons.edit),
                           ),
