@@ -31,4 +31,18 @@ class TodoList extends _$TodoList {
     // 上書き
     state = updatedState;
   }
+
+  void deleteTask(int index) {
+    // 変更前のデータ
+    final oldState = state;
+
+    // 新しいリストを作成し、指定されたインデックスの要素を削除
+    final updatedState = [...oldState];
+    updatedState.removeAt(index);
+
+    //final updatedState = [...oldState]..removeAt(index); 上2行はこれでもOK(カスケード演算子)
+
+    // 更新されたリストで state を上書き
+    state = updatedState;
+  }
 }

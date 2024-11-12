@@ -34,7 +34,11 @@ class TodoListPage extends ConsumerWidget {
                             icon: Icon(Icons.edit),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              final notifier =
+                                  ref.read(todoListProvider.notifier);
+                              notifier.deleteTask(i);
+                            },
                             icon: Icon(Icons.delete),
                           ),
                         ],
