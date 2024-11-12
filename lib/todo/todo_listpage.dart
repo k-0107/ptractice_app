@@ -18,10 +18,17 @@ class TodoListPage extends ConsumerWidget {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
+              child: ReorderableListView.builder(
                 itemCount: todoList.length,
+                onReorder: (oldIndex, newIndex) {
+                  // リストを並べ替える処理
+                  if (newIndex > oldIndex) newIndex -= 1;
+                  final notifier = ref.read(todoListProvider.notifier);
+                  notifier.reorderTask(oldIndex, newIndex);
+                },
                 itemBuilder: (c, i) {
                   return Card(
+                    key: ValueKey(todoList[i]),
                     child: ListTile(
                       title: Text(todoList[i]),
                       trailing: Row(

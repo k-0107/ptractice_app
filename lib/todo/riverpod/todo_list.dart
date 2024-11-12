@@ -45,4 +45,11 @@ class TodoList extends _$TodoList {
     // 更新されたリストで state を上書き
     state = updatedState;
   }
+
+  void reorderTask(int oldIndex, int newIndex) {
+    final updatedList = [...state];
+    final task = updatedList.removeAt(oldIndex);
+    updatedList.insert(newIndex, task);
+    state = updatedList;
+  }
 }
