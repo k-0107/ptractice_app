@@ -12,7 +12,7 @@ class TodoListPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('タスク追加'),
+        title: const Text('タスク追加'),
       ),
       body: Center(
         child: Column(
@@ -38,7 +38,7 @@ class TodoListPage extends ConsumerWidget {
                             onPressed: () {
                               context.go('/c', extra: i);
                             },
-                            icon: Icon(Icons.edit),
+                            icon: const Icon(Icons.edit),
                           ),
                           IconButton(
                             onPressed: () {
@@ -46,7 +46,7 @@ class TodoListPage extends ConsumerWidget {
                                   ref.read(todoListProvider.notifier);
                               notifier.deleteTask(i);
                             },
-                            icon: Icon(Icons.delete),
+                            icon: const Icon(Icons.delete),
                           ),
                         ],
                       ),

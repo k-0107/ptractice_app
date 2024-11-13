@@ -6,7 +6,7 @@ import 'package:practice_app/todo/todo_listpage.dart';
 
 class Todoeditpage extends ConsumerWidget {
   final int taskIndex;
-  Todoeditpage({super.key, required this.taskIndex});
+  const Todoeditpage({super.key, required this.taskIndex});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,7 +15,7 @@ class Todoeditpage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('タスク編集'),
+        title: const Text('タスク編集'),
       ),
       body: Center(
         child: Column(

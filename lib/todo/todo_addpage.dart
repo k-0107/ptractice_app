@@ -12,7 +12,7 @@ class Todoaddpage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('タスク追加'),
+        title: const Text('タスク追加'),
       ),
       body: Center(
         child: Column(
@@ -33,7 +33,7 @@ class Todoaddpage extends ConsumerWidget {
                   context.push('/a');
                 }
               },
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
             ),
             ElevatedButton(
               onPressed: () {
